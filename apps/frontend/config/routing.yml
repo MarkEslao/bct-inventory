@@ -1,0 +1,36 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: home, action: index } 
+
+default_index:
+  url:   /:module
+  param: { action: index }
+  
+vendor_index:
+  url:   /vendor/list
+  param: { module: vendor, action: index }   
+  
+mealcategory:
+  url:   /category
+  param: { module: mealcategory, action: index }   
+  
+display:
+  url:   /display
+  param: { module: display, action: index }    
+  
+sales_order:
+  url:   /sales/retail
+  param: { module: sales, action: order }      
+   
+
+default:
+  url:   /:module/:action/*
+
+sf_guard_signin:
+  url:   /signin
+  param: { module: sfGuardAuth, action: signin }
+ 
+sf_guard_signout:
+  url:   /signout
+  param: { module: sfGuardAuth, action: signout }

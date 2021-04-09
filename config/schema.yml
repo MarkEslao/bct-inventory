@@ -1,0 +1,462 @@
+propel:
+  mealcategory:
+    id:           ~
+    name:         { type: varchar(255), required: true}
+    desc:         { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~
+    
+  terminal:
+    id:           ~
+    name:         { type: varchar(255), required: true}
+    location:     { type: varchar(255), required: true}
+    ipaddress:    { type: varchar(255), required: true}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  mealcharges:
+    id:           ~
+    meal:         { type: varchar(255), required: false}
+    itemserial:   { type: varchar(255), required: false}
+    unit:         { type: decimal, required: false}
+    cost:         { type: decimal, required: false}     
+    price:        { type: decimal, required: false}  
+    select:       { type: varchar(255), required: false}  
+    quantity:     { type: varchar(255), required: false}
+    customer:     { type: varchar(255), required: false}
+    terminal:        { type: varchar(255), required: false}
+    status:       { type: varchar(255), required: false}
+    vatin:        { type: decimal, required: false}
+    vatex:        { type: decimal, required: false}
+    date:         { type: date}
+    comments:     { type: varchar(1000), required: false}
+    discount:     { type: varchar(255), required: false}
+    discount1:     { type: varchar(255), required: false}
+    receipt:        { type: varchar(255), required: false}
+    areceipt:        { type: varchar(255), required: false}
+    cashier:        { type: varchar(255), required: false}
+    senior:        { type: varchar(255), required: false}
+    location:      { type: varchar(255), required: false}
+    ret:        { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~
+    
+  ingredients:
+    id:           ~
+    qty:          { type: varchar(255), required: true}
+    main:         { type: integer, foreignTable: inventoryingri, foreignReference: id }
+    items:          { type: integer, foreignTable: inventoryingri, foreignReference: id }
+    updated_at:   ~		
+    created_at:   ~ 
+
+  addons:
+    id:           ~
+    price:        { type: varchar(255), required: true}
+    main:         { type: integer, foreignTable: inventoryingri, foreignReference: id }
+    items:        { type: integer, foreignTable: inventoryingri, foreignReference: id }
+    updated_at:   ~		
+    created_at:   ~      
+    
+  inventorycount:
+    id:           ~
+    meal:         { type: varchar(255), required: false}
+    quantity:     { type: varchar(255), required: false}
+    location:     { type: varchar(255), required: false}
+    category:     { type: varchar(255), required: false}
+    date:         { type: date}
+    updated_at:   ~	
+    created_at:   ~   
+    
+  inventoryingri:
+    id:           ~
+    name:         { type: varchar(255), required: true}
+    barcode:      { type: varchar(255), required: false}
+    reorder:      { type: varchar(255), required: false}
+    qty:          { type: varchar(255), required: false}
+    vatin:        { type: decimal, required: true}
+    vatex:        { type: decimal, required: true}
+    selprice:     { type: decimal, required: true} 
+    price:        { type: decimal, required: true}    
+    uom:          { type: varchar(255), required: false}
+    pouom:        { type: varchar(255), required: false}  
+    con1:        { type: varchar(255), required: false}  
+    con2:        { type: varchar(255), required: false}     
+    category:     { type: varchar(255), required: false} 
+    type:         { type: varchar(255), required: false}
+    file:         { type: varchar(255), required: false}  
+    senior:        { type: boolean, required: false}
+    nonstock:      { type: boolean, required: false}
+    active:        { type: varchar(255), required: false}
+    addons:        { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  location:
+    id:           ~
+    code:         { type: varchar(255), required: false}
+    name:         { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~   
+    
+  discount:
+    id:           ~
+    discount:    { type: varchar(255), required: false}
+    status:      { type: varchar(255), required: false}
+    table:       { type: varchar(255), required: false}
+    receipt:     { type: varchar(255), required: false}  
+    updated_at:   ~	
+    created_at:   ~      
+    
+  itemlogs:
+    id:           ~
+    ingredients:         { type: varchar(255), required: true}
+    name:         { type: varchar(255), required: false}
+    begin:        { type: decimal, required: false}
+    adjust:       { type: decimal, required: false}
+    endin:        { type: decimal, required: false}
+    uom:        { type: decimal, required: false}
+    remarks:      { type: varchar(255), required: false}
+    user:         { type: varchar(255), required: false}
+    branch:       { type: varchar(255), required: false}
+    type:       { type: varchar(255), required: false}
+    date:       { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~ 
+
+  modepayments:
+    id:           ~
+    name:      { type: varchar(255), required: false}
+    type:      { type: varchar(255), required: false}   
+    status:    { type: varchar(255), required: false}    
+
+  payments:
+    id:           ~
+    table:         { type: varchar(255), required: false}
+    card:          { type: varchar(255), required: false}
+    code:          { type: varchar(255), required: false}
+    type:          { type: varchar(255), required: false}
+    amount:        { type: decimal, required: false}
+    mop:           { type: varchar(255), required: false}
+    cashier:       { type: varchar(255), required: false}
+    status:        { type: varchar(255), required: false}
+    receipt:        { type: varchar(255), required: false}
+    areceipt:        { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~
+    
+  receipt:
+    id:           ~
+    ornumber:      { type: varchar(255), required: false}
+    table:         { type: varchar(255), required: false}
+    cashier:       { type: varchar(255), required: false}
+    date:          { type: varchar(255), required: false}
+    subtotal:      { type: decimal, required: false}
+    vatable:         { type: decimal, required: false}
+    vatin:           { type: decimal, required: false}
+    vatex:           { type: decimal, required: false}
+    senior:        { type: varchar(255), required: false}
+    discount:      { type: varchar(255), required: false}
+    total:         { type: decimal, required: false}
+    status:        { type: varchar(255), required: false}
+    type:          { type: varchar(255), required: false}
+    comments:      { type: varchar(255), required: false}
+    customer:      { type: varchar(255), required: false}
+    name:          { type: varchar(255), required: false}
+    tin:           { type: varchar(255), required: false}
+    address:       { type: varchar(255), required: false}
+    arorder:       { type: varchar(255), required: false}
+    smac:          { type: varchar(255), required: false}
+    eplus:         { type: varchar(255), required: false}
+    credit:        { type: decimal, required: false}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  areceipt:
+    id:           ~
+    ornumber:      { type: varchar(255), required: false}
+    table:         { type: varchar(255), required: false}
+    cashier:       { type: varchar(255), required: false}
+    date:          { type: varchar(255), required: false}
+    subtotal:      { type: decimal, required: false}
+    vatable:         { type: decimal, required: false}
+    vatin:           { type: decimal, required: false}
+    vatex:           { type: decimal, required: false}
+    senior:          { type: decimal, required: false}
+    discount:      { type: varchar(255), required: false}
+    total:         { type: decimal, required: false}
+    status:        { type: varchar(255), required: false}
+    type:          { type: varchar(255), required: false}
+    comments:      { type: varchar(255), required: false}
+    customer:      { type: varchar(255), required: false}
+    credit:        { type: decimal, required: false}
+    updated_at:   ~	
+    created_at:   ~    
+    
+  senior:
+    id:           ~
+    senior:      { type: varchar(255), required: false}
+    status:      { type: varchar(255), required: true}
+    table:       { type: varchar(255), required: true}
+    take:        { type: varchar(255), required: true}
+    card:        { type: varchar(255), required: true}
+    discount:    { type: varchar(255), required: false}
+    receipt:     { type: varchar(255), required: true}
+    customer:    { type: varchar(255), required: true}
+    giftcert:       { type: varchar(255), required: false}    
+    updated_at:   ~	
+    created_at:   ~   
+    
+  auditlogs:
+    id:           ~
+    user:         { type: varchar(255)}
+    receipt:      { type: varchar(255)}
+    tran:         { type: varchar(255)}
+    date:         { type: date}
+    machine:      { type: varchar(255)}
+    ipaddress:    { type: varchar(255)}
+    type:         { type: varchar(255)}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  vendor:
+    id:           ~
+    name:    { type: varchar(255), required: false}
+    address:  { type: varchar(255), required: false}
+    contactname:  { type: varchar(255), required: false}
+    contactphone:     { type: varchar(255), required: false}
+    fax:     { type: varchar(255), required: false}
+    email:     { type: varchar(255), required: false}
+    tin:    { type: varchar(255), required: false}
+    file:         { type: varchar(255), required: false} 
+    remarks:         { type: varchar(255), required: false} 
+    charge:       { type: varchar(255), required: false} 
+    other:        { type: varchar(255), required: false} 
+    updated_at:   ~	
+    created_at:   ~  
+    
+  vendoritems:
+    id:           ~
+    vendor:    { type: varchar(255), required: false}
+    inventoryingri:  { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~    
+    
+  purchaseorder:
+    id:           ~
+    branch:    { type: integer, foreignTable: location, foreignReference: id, required: false }
+    vendor:    { type: integer, foreignTable: vendor, foreignReference: id, required: false }
+    number:    { type: varchar(255), required: false}
+    deliveredby:    { type: varchar(255), required: false}
+    notedby:    { type: varchar(255), required: false}
+    approvedby:    { type: varchar(255), required: false}
+    checkedby:    { type: varchar(255), required: false}
+    date:      { type: date, required: false}
+    expdate:   { type: date, required: false}
+    status:    { type: varchar(255), required: false}
+    remarks:   { type: varchar(10000), required: false}
+    category:    { type: varchar(255), required: false}
+    remarksreceive:    { type: varchar(10000), required: false}
+    remarksreturn:     { type: varchar(10000), required: false}
+    user:     { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~    
+               
+  orderitems:
+    id:           ~
+    purchaseorder:    { type: varchar(255), required: false}
+    items:         { type: varchar(255), required: false}
+    qoh:           { type: decimal, required: false}
+    quantity:      { type: decimal, required: false}
+    unitprice:     { type: decimal, required: false}
+    price:         { type: decimal, required: false}
+    date:          { type: date, required: false}
+    user:          { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  receiveitems:
+    id:           ~
+    purchaseorder:    { type: varchar(255), required: false}
+    items:         { type: varchar(255), required: false}
+    quantity:      { type: decimal, required: false}
+    unitprice:     { type: decimal, required: false}
+    price:         { type: decimal, required: false}
+    date:          { type: date, required: false}
+    user:          { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~   
+    
+  receiveitemsbarcode:
+    id:           ~
+    purchaseorder:    { type: varchar(255), required: false}
+    items:            { type: varchar(255), required: false}
+    quantity:         { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~     
+    
+  returnitems:
+    id:           ~
+    purchaseorder:    { type: varchar(255), required: false}
+    items:         { type: varchar(255), required: false}
+    quantity:      { type: decimal, required: false}
+    unitprice:     { type: decimal, required: false}
+    price:         { type: decimal, required: false}
+    date:          { type: date, required: false}
+    user:          { type: varchar(255), required: false}
+    remarks:       { type: varchar(255), required: false}
+    branch:       { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~
+    
+  issuance:
+    id:           ~
+    branch:    { type: integer, foreignTable: location, foreignReference: id, required: false }
+    branch1:    { type: integer, foreignTable: location, foreignReference: id, required: false }
+    purchaseorder:    { type: integer, foreignTable: vendor, foreignReference: id, required: false }
+    number:    { type: varchar(255), required: false}
+    deliveredby:    { type: varchar(255), required: false}
+    notedby:    { type: varchar(255), required: false}
+    date:      { type: date, required: false}
+    status:    { type: varchar(255), required: false}
+    remarks:   { type: varchar(10000), required: false}
+    remarksreceive:    { type: varchar(10000), required: false}
+    remarksreturn:     { type: varchar(10000), required: false}
+    user:     { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~    
+               
+  issuanceitems:
+    id:           ~
+    issuance:    { type: varchar(255), required: false}
+    items:         { type: varchar(255), required: false}
+    quantity:      { type: decimal, required: false}
+    receive:      { type: decimal, required: false}
+    unitprice:     { type: decimal, required: false}
+    price:         { type: decimal, required: false}
+    user:          { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  receive:
+    id:           ~
+    branch:    { type: integer, foreignTable: location, foreignReference: id, required: false }
+    number:    { type: varchar(255), required: false}
+    deliveredby:    { type: varchar(255), required: false}
+    notedby:    { type: varchar(255), required: false}
+    date:      { type: date, required: false}
+    status:    { type: varchar(255), required: false}
+    remarks:   { type: varchar(10000), required: false}
+    remarksreceive:    { type: varchar(10000), required: false}
+    user:     { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~    
+               
+  receivingitems:
+    id:           ~
+    receive:    { type: varchar(255), required: false}
+    items:         { type: varchar(255), required: false}
+    quantity:      { type: decimal, required: false}
+    unitprice:     { type: decimal, required: false}
+    price:         { type: decimal, required: false}
+    user:          { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~       
+    
+  customer:
+    id:           ~
+    code:    { type: varchar(255), required: false}
+    name:    { type: varchar(255), required: false}
+    address:  { type: varchar(255), required: false}
+    contactname:  { type: varchar(255), required: false}
+    contactphone:     { type: varchar(255), required: false}
+    fax:     { type: varchar(255), required: false}
+    email:     { type: varchar(255), required: false}
+    type:     { type: varchar(255), required: false}
+    credit:    { type: decimal, required: false}
+    updated_at:   ~	
+    created_at:   ~       
+    
+  configuration:
+    id:           ~
+    name:         { type: varchar(255), required: false}
+    branch:       { type: varchar(255), required: false}
+    content:      { type: varchar(10000), required: false}
+    footer:       { type: varchar(10000), required: false}
+    file:         { type: varchar(255), required: false}
+    alliance:     { type: varchar(255), required: false}
+    giftcert:     { type: varchar(255), required: false}
+    scdiscount:   { type: varchar(255), required: false}
+    itemdiscount:   { type: varchar(255), required: false}
+    discount:     { type: varchar(255), required: false}
+    demo:         { type: varchar(255), required: false}
+    transdate:    { type: date, required: false}
+    transon:      { type: varchar(255), required: false}
+    
+  giftcertificate:
+    id:           ~
+    number:    { type: varchar(255), required: false}
+    value:     { type: varchar(255), required: false}
+    status:    { type: varchar(255), required: false}
+    type:      { type: varchar(255), required: false}
+    customer:  { type: varchar(255), required: false}
+    contact:  { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~    
+    
+  giftcert:
+    id:           ~
+    senior:         { type: varchar(255), required: true}
+    giftcert:       { type: varchar(255), required: false}
+    
+  cashcount:
+    id:           ~
+    date:         { type: date, required: true}
+    oneth:         { type: varchar(255), required: false}
+    fiveh:         { type: varchar(255), required: false}
+    twoh:         { type: varchar(255), required: false}
+    oneh:         { type: varchar(255), required: false}
+    fifty:         { type: varchar(255), required: false}
+    twenty:         { type: varchar(255), required: false}
+    ten:         { type: varchar(255), required: false}
+    five:         { type: varchar(255), required: false}
+    one:         { type: varchar(255), required: false}
+    fiftyc:         { type: varchar(255), required: false}
+    twentyfivec:         { type: varchar(255), required: false}
+    tenc:         { type: varchar(255), required: false}
+    fivec:         { type: varchar(255), required: false}
+    amount:      { type: varchar(255), required: false}
+    total:      { type: varchar(255), required: false}
+    over:       { type: varchar(255), required: false}
+    short:      { type: varchar(255), required: false}
+    terminal:      { type: varchar(255), required: false}
+    cashier:      { type: varchar(255), required: false}
+    type:      { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~  
+    
+  help:
+    id:           ~
+    name:      { type: varchar(255), required: false}
+    short:     { type: varchar(30000), required: false}
+    desc:      { type: varchar(30000), required: false}
+    file:      { type: varchar(255), required: false}  
+    
+  discountlist:
+    id:           ~
+    name:      { type: varchar(255), required: false}
+    amount:    { type: varchar(255), required: false}
+    status:    { type: varchar(255), required: false}
+    type:      { type: varchar(255), required: false}
+    
+  itemserial:
+    id:           ~
+    items:         { type: varchar(255), required: false}
+    number:        { type: varchar(255), required: false}
+    quantity:      { type: varchar(255), required: false}
+    date:          { type: date, required: false}
+    user:          { type: varchar(255), required: false}
+    updated_at:   ~	
+    created_at:   ~     
+ 
+    
+    
